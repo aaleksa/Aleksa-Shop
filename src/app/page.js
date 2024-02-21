@@ -1,14 +1,16 @@
-// import Image from "next/image";
 import * as React from 'react';
-import DrawerAppBar from  "/src/components/AppBar";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Header from "../components/Header";
+import Container from "@mui/material/Container"
+// import Grid from "@mui/material/Grid";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <header>
-        <DrawerAppBar/>
-      </header>
 
-    </main>
-  );
+    return (
+            <Box component={"main"}>
+                <Header/>
+             </Box>
+    );
 }
+

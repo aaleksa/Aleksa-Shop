@@ -1,29 +1,24 @@
 'use client'
-import Link from '@mui/material/Link';
-import * as NextLink from 'next/link';
 import DrawerAppBar from "/src/components/AppBar";
 import * as React from 'react';
+import { Component } from "react";
+import TitlePage from "../../components/TitlePage";
+import Header from "../../components/Header";
 import Box from "@mui/material/Box";
 
-export default function Page() {
+export default class Campaigns extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "Campaigns",
+        };
+    }
+    render(){
+
     return (
-        <div className="flex min-h-screen flex-col items-center justify-between p-24">
-            {/*<header>*/}
-            {/*<drawerAppBar/>*/}
-            <h1>Campaigns</h1>
-            <DrawerAppBar/>
-            {/*</header>*/}
-            <Box sx={{display: {xs: 'none', sm: 'block'}}}>
-
-                <Link component={NextLink}
-                      sx={{color: '#fff'}}
-                      href="/"
-                >
-                    To Home page
-                </Link>
-
-
-            </Box>
-        </div>
+        <Box component={"main"} >
+            <Header/>
+            <TitlePage title={this.state.title} />
+        </Box>
     );
-}
+}}

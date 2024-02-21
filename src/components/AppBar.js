@@ -1,5 +1,6 @@
 'use client'
 import * as React from 'react';
+import * as NextLink from 'next/link';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,14 +15,23 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-// import Link from "/src/app/Link";
 import Link from '@mui/material/Link';
-
 import Logo from "/public/logo-new.png";
-import * as NextLink from 'next/link';
 
 const drawerWidth = 240;
-const navItems = ['home', 'about', 'size charts', 'campaigns'];
+const navItems = ['home', 'about', 'sizecharts', 'campaigns'];
+const linkMenu = (item) => {
+    if (item === "home") {
+        return {
+            pathname: `/`,
+        };
+    } else {
+        return {
+            pathname: `/${item}`,
+
+        };
+    }
+}
 
 
 function DrawerAppBar(props) {
@@ -53,29 +63,29 @@ function DrawerAppBar(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{display: 'flex'}}>
+        <Box>
             <CssBaseline/>
-            <AppBar component="nav">
-                <Toolbar>
+            <AppBar component="nav" position="static">
+                <Toolbar sx={{display:"flex"}}>
                     <IconButton
-                        color="inherit"
+                        color="i"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{mr: 2, display: {sm: 'none'}}}
+                        sx={{mr: 2, display: {sm: 'none', xs: 'block'}}}
                     >
                         <MenuIcon/>
                     </IconButton>
-                    <Box sx={{display: {xs: 'none', sm: 'block'}}}>
+                    <Box sx={{display: {xs: 'none', sm: 'flex'}}}>
                         {navItems.map((item) => (
                             <Link component={NextLink}
+                                  variant="h6"
                                   key={item}
-                                  sx={{color: '#fff', padding: 8}}
-                                  href={`/${item}`}
+                                  sx={{color: '#fff', padding: '8px', textTransform: "uppercase"}}
+                                  href={linkMenu(item)}
                             >
                                   {item}
                             </Link>
-
                         ))}
                     </Box>
                     <Link href="/" component={NextLink}>
@@ -95,7 +105,7 @@ function DrawerAppBar(props) {
             <nav>
                 <Drawer
                     container={container}
-                    variant="temporary"
+                    variant="primary"
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{

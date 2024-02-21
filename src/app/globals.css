@@ -3,31 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /*--mui-palette-primary-main: #1976d2;*/
+  /*--mui-palette-primary-light: #42a5f5;*/
+  /*--mui-palette-primary-dark: #1565c0;*/
+  /*--mui-palette-primary-contrastText: #fff;*/
+  /*--mui-palette-text-primary: #fcba03;*/
+  /*--mui-palette-text-secondary: #19857b;*/
+  /* ...other variables */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/*@media (prefers-color-scheme: dark) {*/
+/*  :root {*/
+/*    --foreground-rgb: 255, 255, 255;*/
+/*    --background-start-rgb: 0, 0, 0;*/
+/*    --background-end-rgb: 0, 0, 0;*/
+/*  }*/
+/*}*/
+/*body {*/
+/*  !*background-color: var(--mui-palette-background-paper);*!*/
+/*}*/
+/*body {*/
+/*  color:  #1976d2;*/
+/*  background: #282c34*/
+/*}*/
+main {
+    display: flex;
+    flex-direction: column;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+/*@layer utilities {*/
+/*  .text-balance {*/
+/*    text-wrap: balance;*/
+/*  }*/
+/*}*/

@@ -1,28 +1,31 @@
 'use client'
-import Link from '@mui/material/Link';
-import * as NextLink from 'next/link';
-import DrawerAppBar from "/src/components/AppBar";
+
 import * as React from 'react';
+import {styled} from "@mui/material/styles"
+import TitlePage from "../../components/TitlePage";
+import { Component } from "react";
+import Header from "../../components/Header";
 import Box from "@mui/material/Box";
 
-export default function About() {
+const FontColor = styled("div")(({theme}) => ({
+        [theme.breakpoints.up('md')]: {
+            color: theme.palette.text.secondary,
+        },
+
+}));
+
+export default class About extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "About",
+        };
+    }
+    render() {
     return (
-        <div className="flex min-h-screen flex-col items-center justify-between p-24">
-            {/*<header>*/}
-            {/*<drawerAppBar/>*/}
-            <h1>ABOUT</h1>
-            <DrawerAppBar/>
-            {/*</header>*/}
-            <Box sx={{display: {xs: 'none', sm: 'block'}}}>
-
-                <Link component={NextLink}
-                      sx={{color: '#fff'}}
-                      href="/"
-                >
-                    To Home page
-                </Link>
-
-            </Box>
-        </div>
+        <Box component={"main"} >
+            <Header/>
+            <TitlePage title={this.state.title} />
+        </Box>
     );
-}
+}}
